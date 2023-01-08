@@ -10,3 +10,5 @@ You can extract the DOL file by dumping the files of your **legally** owned game
 
 ----
 If you need further help, you can join our [Discord server.](https://discord.gg/msKfjrqfCm)
+----
+Created by Eliott
