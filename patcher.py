@@ -66,7 +66,7 @@ if __name__ == "__main__":
     root.withdraw()
     dol_path = filedialog.askopenfilename( title = "Select the main.dol file", filetypes = ( ( "DOL Files", "*.dol" ), ( "all files","*.*" ) ) )
     
-    path_exists = os.path.isdir(dol_path)
+    path_exists = os.path.exists(dol_path)
     if not path_exists:
         logging.error("Please provide a correct path to your DOL file!")
         exit()
