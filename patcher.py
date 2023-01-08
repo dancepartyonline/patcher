@@ -1,5 +1,4 @@
-import os
-import logging, tkinter as tk, shutil
+import logging, shutil, os, tkinter as tk
 from tkinter import filedialog
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
@@ -18,14 +17,13 @@ SERVERS = {
     "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
 }
 
-GAMES = 2018, 2017, 2016#, 2015, 2014
+GAMES = 2018, 2017, 2016 #, 2015, 2014
 
 def patch_exec(path, output):
     jdver = 9999
     
     with open(path, "rb") as main:
         main_dol = main.read()
-    print("DanceParty Patcher")
     logging.info("DOL file loadded successfully.")
 
     logging.debug("Getting the Just Dance version")
@@ -62,12 +60,12 @@ def patch_exec(path, output):
     
 
 if __name__ == "__main__":
+    print("DanceParty Patcher")
     root = tk.Tk()
     root.withdraw()
     dol_path = filedialog.askopenfilename( title = "Select the main.dol file", filetypes = ( ( "DOL Files", "*.dol" ), ( "all files","*.*" ) ) )
-    
-    path_exists = os.path.exists(dol_path)
-    if not path_exists:
+
+    if not os.path.exists(dol_path):
         logging.error("Please provide a correct path to your DOL file!")
         exit()
     
