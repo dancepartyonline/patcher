@@ -8,7 +8,6 @@ DOL files contain game's source code and by patching it with our tool it replace
 
 You can extract the DOL file by dumping the files of your **legally** owned game. You can find it in `DATA/sys` folder.
 
-----
 If you need further help, you can join our [Discord server.](https://discord.gg/msKfjrqfCm)
 ----
 Created by Eliott
