@@ -36,10 +36,10 @@ def patch_exec(path, output):
             break
 
     if jdver == 2015:
-        return logging.error("Sorry, but JustDance 2015 is not supported yet.")
+        return logging.error("Sorry, but Just Dance 2015 is not supported yet.")
     
     if jdver not in GAMES:
-        return logging.error("Either the game is not supported, or you have a bad game dump.")
+        return logging.error("Either the game is not supported, or you have a broken game dump.")
 
     
     logging.debug("Patching DOL...")
