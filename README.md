@@ -15,13 +15,13 @@ For Dolphin users; you need to dump the ENTIRE disc from the root on.
 
 ### Games supported
 
-- [X] JustDance 2014
-- [ ] JustDance 2015
-- [X] JustDance 2016
-- [X] JustDance 2017
-- [X] JustDance 2018
+- [X] Just Dance 2014
+- [ ] Just Dance 2015
+- [X] Just Dance 2016
+- [X] Just Dance 2017
+- [X] Just Dance 2018
 
-JustDance version after 2018 don't have the WorldDance floor so it's not possible to add that feature.
+JustDance version after 2018 don't have the World Dance Floor so it's not possible to add that feature.
 
 If you need further help, you can join our [Discord server.](https://discord.gg/msKfjrqfCm)
 ----
