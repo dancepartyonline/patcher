@@ -17,7 +17,7 @@ SERVERS = {
     "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
 }
 
-GAMES = 2018, 2017, 2016 #, 2015, 2014
+GAMES = 2018, 2017, 2016, 2015, 2014
 
 def patch_exec(path, output):
     jdver = 9999
@@ -34,9 +34,13 @@ def patch_exec(path, output):
             jdver = game
             logging.debug(f"{jdver=}")
             break
+
+    if jdver == 2015:
+        return logging.error("Sorry, but Just Dance 2015 is not supported yet.")
     
     if jdver not in GAMES:
-        return logging.error("Game not supported!")
+        return logging.error("Either the game is not supported, or you have a broken game dump.")
+
     
     logging.debug("Patching DOL...")
     for key, value in SERVERS.items():
