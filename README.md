@@ -21,7 +21,7 @@ For Dolphin users; you need to dump the ENTIRE disc from the root on.
 - [X] Just Dance 2017
 - [X] Just Dance 2018
 
-JustDance version after 2018 don't have the World Dance Floor so it's not possible to add that feature.
+Just Dance 2019 and 2020 don't have World Dance Floor.
 
 If you need further help, you can join our [Discord server.](https://discord.gg/msKfjrqfCm)
 ----
