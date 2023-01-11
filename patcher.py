@@ -68,7 +68,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     root.withdraw()
     dol_path = filedialog.askopenfilename( title = "Select the main.dol file", filetypes = ( ( "DOL Files", "*.dol" ), ( "all files","*.*" ) ) )
-
     if not os.path.exists(dol_path):
         logging.error("Please provide a correct path to your DOL file!")
         exit()
