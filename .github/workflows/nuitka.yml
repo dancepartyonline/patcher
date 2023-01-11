@@ -1,5 +1,3 @@
-name: Nuitka
-
 on:
   push:
     branches: [ "main" ]
