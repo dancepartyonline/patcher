@@ -50,6 +50,9 @@ def patch_exec(path, output):
     if jdver not in GAMES:
         return logging.error("Either the game is not supported, or you have a broken game dump.")
 
+    # If version is 2014 replace servers with JD5
+    if jdver == 2014:
+        SERVERS = SERVERS_JD5
     
     logging.debug("Patching DOL...")
     for key, value in SERVERS.items():
