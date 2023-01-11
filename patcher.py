@@ -2,6 +2,8 @@ import logging, shutil, os, tkinter as tk
 from tkinter import filedialog
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
+TRACKING = "http://trk-wii-dance.danceparty.online"
+
 SERVERS = {
     # NAS #
     "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
@@ -14,7 +16,14 @@ SERVERS = {
     "wii-dance6-ws1.ubisoft.com": "wii01-lgc.danceparty.online",
     "wii-dance6-ws2.ubisoft.com": "wii02-lgc.danceparty.online",
     # Tracking #
-    "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
+    "https://tracking-wii-dance.ubisoft.com": TRACKING,
+}
+
+SERVERS_JD5 = {
+    # WDF #
+    "https://tracking-wii-dance.ubisoft.com/wdf/": "http://wii01-lgc.danceparty.online/wdf/",
+    # Tracking #
+    "https://tracking-wii-dance.ubisoft.com/": TRACKING
 }
 
 GAMES = 2018, 2017, 2016, 2015, 2014
