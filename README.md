@@ -8,6 +8,12 @@ You will need to install [Python 3](https://www.python.org/downloads/ "Python 3"
 
 DOL files contain game's source code and by patching it with our tool it replaces old server URLs with ours which builds a connection between you and the servers.
 
+### Services explanation
+- NAS: Authentication server by Nintendo
+- WS: Game servers
+- Tracking: Used by the game to report bugs, issues and errors. It helps us improve the service, you can comment it out if you want to.
+- ECS: Store server
+
 ------------
 
 You can extract the DOL file by dumping the files of your **legally** owned game. You can find it in `DATA/sys` folder.
