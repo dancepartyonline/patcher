@@ -20,6 +20,11 @@ SERVERS = {
 }
 
 SERVERS_JD5 = {
+    # NAS #
+    "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
+    "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
+    # Shop #
+    "https://ecs.shop.wii.com/ecs/services/ECommerceSOAP": "http://shop-lgc.danceparty.online/ecs/ECommerceSOAP",
     # WDF #
     "https://tracking-wii-dance.ubisoft.com/wdf/": "http://wii01-lgc.danceparty.online/wdf/",
     # Tracking #
