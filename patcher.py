@@ -38,7 +38,7 @@ def patch_exec(path, output):
     for game in GAMES:
         # Engine desc JD{game}_{platform}_LEGACY
         # JD5 (legacy) does not have this flag, so we check the Title Just Dance Just Dance® {game}
-        if f"JD{game}".encode("ASCII") in main_dol or f"Just Dance® {game}".encode("ASCII") in main_dol:
+        if f"JD{game}".encode("ASCII") in main_dol or b"Just Dance\xAE " + str(game).encode("ASCII") in main_dol:
             jdver = game
             logging.debug(f"{jdver=}")
             break
