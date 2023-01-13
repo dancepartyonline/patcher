@@ -17,7 +17,12 @@ SERVERS = {
     "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
 }
 
-SERVERS_LEGACY = {
+SERVERS_JD5 = {
+    # NAS #
+    "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
+    "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
+    # Shop #
+    "https://ecs.shop.wii.com/ecs/services/ECommerceSOAP": "http://shop-lgc.danceparty.online/ecs/ECommerceSOAP",
     # WDF #
     "https://tracking-wii-dance.ubisoft.com/wdf/": "http://wii01-lgc.danceparty.online/wdf/",
     # Tracking #
@@ -51,8 +56,9 @@ def patch_exec(path, output):
 
     # If version is 2014 replace servers with JD5
     if jdver == 2014:
-        SERVERS.update(SERVERS_LEGACY)
+        SERVERS = SERVERS_JD5
     
+    print(SERVERS)
     logging.debug("Patching DOL...")
     for key, value in SERVERS.items():
         key_len, value_len = len(key), len(value)
