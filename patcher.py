@@ -58,7 +58,6 @@ def patch_exec(path, output):
     if jdver == 2014:
         SERVERS = SERVERS_JD5
     
-    print(SERVERS)
     logging.debug("Patching DOL...")
     for key, value in SERVERS.items():
         key_len, value_len = len(key), len(value)
