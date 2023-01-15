@@ -2,36 +2,37 @@ import logging, shutil, os, tkinter as tk
 from tkinter import filedialog
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
-SERVERS = {
-    # NAS #
-    "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
-    "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
-    # Shop #
-    "https://ecs.shop.wii.com/ecs/services/ECommerceSOAP": "http://shop-lgc.danceparty.online/ecs/ECommerceSOAP",
-    # WS #
-    "https://wii-dance6-ws1.ubisoft.com": "http://wii01-lgc.danceparty.online",
-    "https://wii-dance6-ws2.ubisoft.com": "http://wii02-lgc.danceparty.online",
-    "wii-dance6-ws1.ubisoft.com": "wii01-lgc.danceparty.online",
-    "wii-dance6-ws2.ubisoft.com": "wii02-lgc.danceparty.online",
-    # Tracking #
-    "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
-}
-
-SERVERS_JD5 = {
-    # NAS #
-    "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
-    "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
-    # Shop #
-    "https://ecs.shop.wii.com/ecs/services/ECommerceSOAP": "http://shop-lgc.danceparty.online/ecs/ECommerceSOAP",
-    # WDF #
-    "https://tracking-wii-dance.ubisoft.com/wdf/": "http://wii01-lgc.danceparty.online/wdf/",
-    # Tracking #
-    "https://tracking-wii-dance.ubisoft.com/": "http://trk-wii-dance.danceparty.online",
-}
-
-GAMES = 2018, 2017, 2016, 2015, 2014
 
 def patch_exec(path, output):
+    SERVERS = {
+        # NAS #
+        "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
+        "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
+        # Shop #
+        "https://ecs.shop.wii.com/ecs/services/ECommerceSOAP": "http://shop-lgc.danceparty.online/ecs/ECommerceSOAP",
+        # WS #
+        "https://wii-dance6-ws1.ubisoft.com": "http://wii01-lgc.danceparty.online",
+        "https://wii-dance6-ws2.ubisoft.com": "http://wii02-lgc.danceparty.online",
+        "wii-dance6-ws1.ubisoft.com": "wii01-lgc.danceparty.online",
+        "wii-dance6-ws2.ubisoft.com": "wii02-lgc.danceparty.online",
+        # Tracking #
+        "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
+    }
+
+    SERVERS_JD5 = {
+        # NAS #
+        "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
+        "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
+        # Shop #
+        "https://ecs.shop.wii.com/ecs/services/ECommerceSOAP": "http://shop-lgc.danceparty.online/ecs/ECommerceSOAP",
+        # WDF #
+        "https://tracking-wii-dance.ubisoft.com/wdf/": "http://wii01-lgc.danceparty.online/wdf/",
+        # Tracking #
+        "https://tracking-wii-dance.ubisoft.com/": "http://trk-wii-dance.danceparty.online",
+    }
+
+    GAMES = 2018, 2017, 2016, 2015, 2014
+
     jdver = 9999
     
     with open(path, "rb") as main:
