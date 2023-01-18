@@ -30,6 +30,24 @@ def patch_exec(path, output):
         # Tracking #
         "https://tracking-wii-dance.ubisoft.com/": "http://trk-wii-dance.danceparty.online",
     }
+    
+    SERVERS_JD15 = {
+        # NAS #
+        "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
+        "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
+        # Shop #
+        "https://ecs.shop.wii.com/ecs/services/ECommerceSOAP": "http://shop-lgc.danceparty.online/ecs/ECommerceSOAP",
+        # WS #
+        "https://wii-dance6-ws1.ubisoft.com/wdfjd6/": "http://wii01-lgc.danceparty.online/wdf15/",
+        "https://wii-dance6-ws1.ubisoft.com": "http://wii01-lgc.danceparty.online",
+        
+        "https://wii-dance6-ws2.ubisoft.com": "http://wii02-lgc.danceparty.online",
+        "wii-dance6-ws1.ubisoft.com": "wii01-lgc.danceparty.online",
+        "wii-dance6-ws2.ubisoft.com": "wii02-lgc.danceparty.online",
+        "wdfjd6": "wdfjd15",
+        # Tracking #
+        "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
+    }
 
     GAMES = 2018, 2017, 2016, 2015, 2014
 
@@ -37,7 +55,7 @@ def patch_exec(path, output):
     
     with open(path, "rb") as main:
         main_dol = main.read()
-    logging.info("DOL file loadded successfully.")
+    logging.info("DOL file loaded successfully.")
 
     logging.debug("Getting the Just Dance version")
     # Gets the jdver
@@ -48,9 +66,6 @@ def patch_exec(path, output):
             jdver = game
             logging.debug(f"{jdver=}")
             break
-
-    if jdver == 2015:
-        return logging.error("Sorry, but Just Dance 2015 is not supported yet.")
     
     if jdver not in GAMES:
         return logging.error("Either the game is not supported, or you have a broken game dump.")
@@ -58,6 +73,8 @@ def patch_exec(path, output):
     # If version is 2014 replace servers with JD5
     if jdver == 2014:
         SERVERS = SERVERS_JD5
+    if jdver == 2015:
+        SERVERS = SERVERS_JD15
     
     logging.debug("Patching DOL...")
     for key, value in SERVERS.items():
