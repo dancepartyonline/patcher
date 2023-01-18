@@ -22,7 +22,7 @@ For Dolphin users; you need to dump the ENTIRE disc from the root on.
 ### Games supported
 
 - [X] Just Dance 2014
-- [ ] Just Dance 2015
+- [X] Just Dance 2015
 - [X] Just Dance 2016
 - [X] Just Dance 2017
 - [X] Just Dance 2018
