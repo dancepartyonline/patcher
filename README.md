@@ -1,8 +1,10 @@
-# DanceParty Patcher
+# DanceParty Patcher (Without Python)
 
 This tool will help you patch your **main.dol** files (which contains contents of the original servers) and replace the original servers with DanceParty ones.
 
-You will need to install [Python 3](https://www.python.org/downloads/ "Python 3") to run this script, after you do so, double click to run it or open it through the CLI `python patcher.py` and it will open up a GUI where you have to select the DOL file you extracted from your game.
+You don't need to install [Python 3](https://www.python.org/downloads/ "Python 3") to run this script.
+
+After installing the `patcher.exe` file in the latest release of this repo, double click to run it and it will open up a GUI where you have to select the DOL file you extracted from your game.
 
 ### What is a DOL file and where can I find it?
 
