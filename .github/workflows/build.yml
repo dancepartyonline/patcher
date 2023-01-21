@@ -16,7 +16,7 @@ jobs:
     - name: Obtain latest version of the repository
       uses: actions/checkout@v1
     - name: Set up Python 3
-      uses: actions/setup-python@v1
+      uses: actions/setup-python@main
       with:
         python-version: '3.11.1'
     - name: Install pyinstaller
