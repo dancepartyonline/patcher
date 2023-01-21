@@ -1,4 +1,4 @@
-name: SentryReleaseWorkflow
+name: Release
 
 on:
   release:
