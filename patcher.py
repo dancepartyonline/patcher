@@ -50,7 +50,7 @@ def patch_exec(path, output):
     }
 
     GAMES = 2018, 2017, 2016, 2015, 2014
-    IDS = "SJOP41", "SJOE41", "SJME89"
+    IDS = "SJOP41", "SJOE41", "SJME89", "SQRE41"
 
     jdver = 9999
     
@@ -71,7 +71,7 @@ def patch_exec(path, output):
     if jdver not in GAMES:
         return logging.error("Either the game is not supported, or you have a broken game dump.")
     
-    # 2014 games and JDJapan both have the same DOL but different ID
+    # 2014 games and 2014 mods have the same DOL but different ID
     # and we can't detect ID from DOL so we check for boot.bin file
     if jdver == 2014:
         sys_path = os.path.dirname(path)
@@ -88,6 +88,11 @@ def patch_exec(path, output):
                 STRINGS_JD5["wiitracking"] = "jdjapantrkw"
                 STRINGS_JD5["2399fff0497ae598539ccb3a61387f67833055ad"] = "a09302313bd087b88a54fe1a010eb62ea3edbfad"
                 STRINGS_JD5["JejDUqq7"] = "DFe3qab8"
+            elif id == "SQRE41":
+                logging.info("JDBEATS detected!")
+                STRINGS_JD5["wiitracking"] = "jdbeatstrkw"
+                STRINGS_JD5["2399fff0497ae598539ccb3a61387f67833055ad"] = "a8a64cef262a04de4872b68b63ab7cd8ee3dfabe"
+                STRINGS_JD5["JejDUqq7"] = "E4aae3fb"
 
     # If version is 2014 replace STRINGS with JD5
     if jdver == 2014:
