@@ -4,7 +4,7 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
 def patch_exec(path, output):
-    SERVERS = {
+    STRINGS = {
         # NAS #
         "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
         "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
@@ -19,7 +19,7 @@ def patch_exec(path, output):
         "https://tracking-wii-dance.ubisoft.com": "http://trk-wii-dance.danceparty.online",
     }
 
-    SERVERS_JD5 = {
+    STRINGS_JD5 = {
         # NAS #
         "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
         "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
@@ -31,7 +31,7 @@ def patch_exec(path, output):
         "https://tracking-wii-dance.ubisoft.com/": "http://trk-wii-dance.danceparty.online",
     }
     
-    SERVERS_JD15 = {
+    STRINGS_JD15 = {
         # NAS #
         "https://naswii.nintendowifi.net/ac": "http://na-lgc.danceparty.online/ac",
         "https://naswii.nintendowifi.net/pr": "http://na-lgc.danceparty.online/pr",
@@ -50,6 +50,7 @@ def patch_exec(path, output):
     }
 
     GAMES = 2018, 2017, 2016, 2015, 2014
+    IDS = "SJOP41", "SJOE41", "SJME89"
 
     jdver = 9999
     
@@ -57,7 +58,7 @@ def patch_exec(path, output):
         main_dol = main.read()
     logging.info("DOL file loaded successfully.")
 
-    logging.debug("Getting the Just Dance version")
+    logging.debug("Fetching the Just Dance version...")
     # Gets the jdver
     for game in GAMES:
         # Engine desc JD{game}_{platform}_LEGACY
@@ -69,15 +70,33 @@ def patch_exec(path, output):
     
     if jdver not in GAMES:
         return logging.error("Either the game is not supported, or you have a broken game dump.")
-
-    # If version is 2014 replace servers with JD5
+    
+    # 2014 games and JDJapan both have the same DOL but different ID
+    # and we can't detect ID from DOL so we check for boot.bin file
     if jdver == 2014:
-        SERVERS = SERVERS_JD5
+        sys_path = os.path.dirname(path)
+        boot_path = os.path.join(sys_path, "boot.bin")
+        if not os.path.exists(sys_path) or not os.path.exists(boot_path):
+            return logging.error("Are you sure you selected a DOL file that's located in DATA/sys? Can't find boot.bin file...")
+        
+        with open(boot_path, 'rb') as f:
+            id = f.read(6).decode()
+            if not id in IDS:
+                return logging.error("Your 'main.dol' ID " + id + " is not available to patch.")
+            if id == "SJME89":
+                logging.info("JDJAPAN detected!")
+                STRINGS_JD5["wiitracking"] = "jdjapantrkw"
+                STRINGS_JD5["2399fff0497ae598539ccb3a61387f67833055ad"] = "a09302313bd087b88a54fe1a010eb62ea3edbfad"
+                STRINGS_JD5["JejDUqq7"] = "DFe3qab8"
+
+    # If version is 2014 replace STRINGS with JD5
+    if jdver == 2014:
+        STRINGS = STRINGS_JD5
     if jdver == 2015:
-        SERVERS = SERVERS_JD15
+        STRINGS = STRINGS_JD15
     
     logging.debug("Patching DOL...")
-    for key, value in SERVERS.items():
+    for key, value in STRINGS.items():
         key_len, value_len = len(key), len(value)
         key, value = key.encode("ASCII"), value.encode("ASCII")
         if key_len < value_len:
