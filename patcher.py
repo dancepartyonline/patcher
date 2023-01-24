@@ -50,7 +50,7 @@ def patch_exec(path, output):
     }
 
     GAMES = 2018, 2017, 2016, 2015, 2014
-    IDS = "SJOP41", "SJOE41", "SJME89", "SQRE41"
+    IDS = "SJOP41", "SJOE41", "SJME89"
 
     jdver = 9999
     
@@ -88,11 +88,6 @@ def patch_exec(path, output):
                 STRINGS_JD5["wiitracking"] = "jdjapantrkw"
                 STRINGS_JD5["2399fff0497ae598539ccb3a61387f67833055ad"] = "a09302313bd087b88a54fe1a010eb62ea3edbfad"
                 STRINGS_JD5["JejDUqq7"] = "DFe3qab8"
-            elif id == "SQRE41":
-                logging.info("JDBEATS detected!")
-                STRINGS_JD5["wiitracking"] = "jdbeatstrkw"
-                STRINGS_JD5["2399fff0497ae598539ccb3a61387f67833055ad"] = "a8a64cef262a04de4872b68b63ab7cd8ee3dfabe"
-                STRINGS_JD5["JejDUqq7"] = "E4aae3fb"
 
     # If version is 2014 replace STRINGS with JD5
     if jdver == 2014:
