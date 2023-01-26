@@ -33,6 +33,11 @@ For Dolphin users; you need to dump the ENTIRE disc from the root on.
 
 Just Dance 2019 and 2020 don't have World Dance Floor.
 
+### Mods supported
+
+- [X] Just Dance Japan *(by Yunyl)*
+- [X] Just Dance Beats *(by SquareJDBR)*
+
 ------------
 
 ## VirusTotal Result:
