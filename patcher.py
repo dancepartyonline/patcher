@@ -71,7 +71,7 @@ def patch_exec(path, output):
     if jdver not in GAMES:
         return logging.error("Either the game is not supported, or you have a broken game dump.")
     
-    # 2014 games and JDJapan both have the same DOL but different ID
+    # 2014 games and 2014 mods have the same DOL but different ID
     # and we can't detect ID from DOL so we check for boot.bin file
     if jdver == 2014:
         sys_path = os.path.dirname(path)

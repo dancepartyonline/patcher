@@ -49,5 +49,6 @@ Just Dance 2019 and 2020 don't have World Dance Floor.
 
 If you need further help, you can join our [Discord server.](https://discord.gg/msKfjrqfCm)
 ----
+=======
 
-Created by [Eliott](https://github.com/MZommer)
+If you need further help, you can join our [Discord server.](https://discord.gg/msKfjrqfCm)
