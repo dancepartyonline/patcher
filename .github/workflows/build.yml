@@ -1,0 +1,30 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macOS-latest]
+
+    steps:
+    - name: Obtain latest version of the repository
+      uses: actions/checkout@main
+    - name: Set up Python 3
+      uses: actions/setup-python@main
+      with:
+        python-version: '3.11.1'
+    - name: Install pyinstaller
+      run: pip install pyinstaller
+    - name: Build DanceParty Patcher
+      run: pyinstaller --onefile patcher.py
+    - name: Publish Build Artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: ${{ matrix.os }}
+        path: dist
